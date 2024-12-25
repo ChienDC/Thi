@@ -1,0 +1,35 @@
+﻿@model Thi.Models.Rentals
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Customer</label>
+        <select name="customerId" class="form-control">
+            @foreach (var customer in ViewBag.Customers)
+            {
+                <option value="@customer.CustomerID">@customer.FullName</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Comic Book</label>
+        <select name="comicBookId" class="form-control">
+            @foreach (var comicBook in ViewBag.ComicBooks)
+            {
+                <option value="@comicBook.ComicBookID">@comicBook.Title</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Rental Date</label>
+        <input type="date" name="rentalDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Return Date</label>
+        <input type="date" name="returnDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Quantity</label>
+        <input type="number" name="quantity" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Rent</button>
+</form>
